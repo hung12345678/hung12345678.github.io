@@ -1,0 +1,111 @@
+@media (max-width: 1023px){
+    .hiden-tablet{
+        display: none;
+    }
+    .imgtablet{
+        display: block;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: start;
+    }
+    .img{
+        z-index: 1;
+        width:auto;
+    }
+    .img-navbar{
+        width: auto;
+    }
+    .navbar{
+        padding-top: 0;
+        padding-bottom: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        max-width: 180px;
+        transform: translateX(-100%);
+        transition: all ease 1s;
+        background-color: #000;
+    }
+    .navbarinput:checked ~ .navbar{
+        transform: translateX(0%);
+    }
+    .navbarbody{
+        height: auto;
+    }
+    .control-time{
+        width: 100%;
+    }
+    .content-search{
+        width: auto;
+        left: 0;
+    }
+    .header-content-icon{
+        margin-right: 0;
+    }
+    .header-content-listsearch{
+        width: 270px;
+    }
+    .header-content-search{
+        margin-left: 20px;
+    }
+    .header-content-search-input{
+        width: 230px;
+    }
+    .header-content{
+        padding: 0px 0px;
+    }
+    .header-setting-item{
+        margin-right: 4px;
+    }
+    .header-setting{
+        padding-right: 0;
+    }
+    .AboutMusic{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .songheader{
+        width: 300px;
+    }
+}
+@media (max-width: 740px) {
+    .hiden-mobile{
+        display: none;
+    }
+    .control-time{
+        width: 100%;
+    }
+    .imgtablet{
+        display: block;
+    }
+    .navbar{
+        padding-top: 60px;
+    }
+    .img-navbar{
+        width: 50px;
+    }
+    .list-navbar-item{
+      padding: 16px 4px;
+    }
+    .footer{
+        height: 100px;
+    }
+    .img{
+        width: 40px;
+        margin-left: 0;
+    }
+    .list-navbar-item__icon{
+        margin-right: 0;
+        font-size: 2.5rem;
+    }
+    .list-navbar-item{
+        justify-content: center;
+    }
+    .list-navbar-item-img{
+        margin-right: 0;
+    }
+    .AboutMusic-header{
+        justify-content: center;
+    }
+    
+}

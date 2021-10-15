@@ -1,0 +1,6 @@
+:root{
+    --height-navbar:  calc(100vh - 90px);
+    --height-navbarfooter: 54px;
+    --notifitext-size: 1.2rem;
+    --notifitext-color: #fff5f5;
+}
