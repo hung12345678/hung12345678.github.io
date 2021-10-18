@@ -69,6 +69,9 @@
     }
 }
 @media (max-width: 740px) {
+    .background{
+        width: 740px;
+    }
     .hiden-mobile{
         display: none;
     }

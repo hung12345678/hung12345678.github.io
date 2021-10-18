@@ -624,7 +624,7 @@ function handleEvent() {
     
             }, 200)
             if (y > 0) {
-                contentsearch.style.backgroundColor = "#061D4F";
+                
             }
             else {
                 contentsearch.style.backgroundColor = "transparent"
