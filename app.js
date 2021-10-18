@@ -102,6 +102,7 @@ var contentsearch = $('.content-search');
 var showListsong = $('.list')
 var cd = $('.cd')
 var cdThumb = $('.cd-thumb')
+var tensong = $('.namesong')
 var nameSong = $('.header-song')
 var nameband = $('.name-band');
 var audio = $('#audio')
@@ -498,18 +499,7 @@ function handleEvent() {
     //     cd.style.opacity = newWidth / cdWidth;
     // }
     // event next song
-    document.onscroll = function () {
-        var y = pageYOffset
-        setTimeout(function () {
-
-        }, 200)
-        if (y > 0) {
-            contentsearch.style.backgroundColor = "#170F23";
-        }
-        else {
-            contentsearch.style.backgroundColor = "transparent"
-        }
-    }
+    
     iconnext.onclick = function () {
         if (israndom) {
            randomSong();
@@ -571,8 +561,140 @@ function handleEvent() {
         };
 
     }
+    //open && close modal
+    var headersettingitem = $('.header-setting-item')
+    // console.log(notifitheme)
+    var modal = $('.modal')
+    var iconclose = $('.modal-header-icon-close')
+    var modalcontainer = $('.modal-container');
+    headersettingitem.onclick = function(){
+        modal.classList.add('open-modal')
+    }
+    iconclose.onclick = function(){
+        modal.classList.remove('open-modal')
+    }
+    modal.onclick = function(){
+        modal.classList.remove('open-modal')
+    }
+    modalcontainer.onclick =function(e){
+        e.stopPropagation();
+    }
+    document.onscroll = function () {
+        var y = pageYOffset
+        setTimeout(function () {
 
+        }, 200)
+        if (y > 0) {
+            contentsearch.style.backgroundColor = "#061D4F";
+        }
+        else {
+            contentsearch.style.backgroundColor = "transparent"
+        }
+    }
+    //Change Theme
+    var AboutMusicheadertext = $('.AboutMusic-header-text')
+    var content = $('.content')
+    var headercontentlistsearch = $('.header-content-listsearch')
+    var itemtext = $$('.list-navbar-item__text')
+    var listnavbaritem = $$('.list-navbar-item')
+    var navbarfooter = $('.navbarfooter')
+    var listnavbaritem1  = $$('.navbar-libary .list-navbar-item')
+    console.log(listnavbaritem)
+    var Background = $('.background')
+    var iconcheck = $('.icon-check')
+    var applyone = $$('.apply')[0]
+    var applylondon = $$('.apply')[1]
+    var previewone = $$('.preview')[0]
+    var navbar = $('.navbar')
+    var footer = $('.footer')
+    var contentsearch = $('.content-search')
+    var headercontentsearch = $('.header-content-search')
+    var headercontentsearchinput = $ ('.header-content-search-input')
+    var option = $('.option1')
+    var headericon = $('.header-icon')
+    var progressvalue = $('.progressvalue')
+    var timeright = $('.time-right')
+    var footerRight = $('.footer-right')
+    var volume1 = $('.volume1')
+    var btnvolume = $('.btnvolume')
+    applyone.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "#061D4F";
+            }
+            else {
+                contentsearch.style.backgroundColor = "transparent"
+            }
+        }
+        headercontentsearch.style.backgroundColor = '#061D4F'
+        headercontentsearchinput.style.backgroundColor = '#061D4F'
+        contentsearch.style.backgroundColor = '#061D4F'
+        footer.style.backgroundColor = '#051740'
+        navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
+        modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
+        iconcheck.classList.add('active')
+        modal.classList.remove('open-modal')
+    }
+    previewone.onclick = function(){
+        headercontentsearch.style.backgroundColor = '#061D4F'
+        headercontentsearchinput.style.backgroundColor = '#061D4F'
+        contentsearch.style.backgroundColor = '#061D4F'
+        footer.style.backgroundColor = '#051740'
+        navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
+        modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
+    }
+   
+    // theme london
+    applylondon.onclick = function(){
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme/London-light1.jpg)"
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'black'
+        }
+        for(var j = 0; j < listnavbaritem1.length; ++j){
+            listnavbaritem1[j].style.color = 'black'
+        }   
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "#fff";
+            }
+            else {
+                contentsearch.style.backgroundColor = "rgb(225 222 222 / 35%)"
+            }
+        }
+        navbar.style.backgroundColor = 'rgb(225 222 222 / 35%)'
+        navbarfooter.style.color = 'black'
+        headercontentsearch.style.backgroundColor = 'rgb(193 176 176 / 35%)'
+        headercontentsearchinput.style.backgroundColor = 'rgb(225 222 222 / 35%)' 
+        headercontentlistsearch.style.backgroundColor  = 'rgb(225 222 222)' 
+        content.style.color = 'black'
+        AboutMusicheadertext.style.color = 'black'
+        footer.style.backgroundColor = '#fff'
+        nameSong.style.color = 'black'
+        console.log(tensong)
+        modal.classList.remove('open-modal')
+        iconcheck.classList.add('active')
+        option.style.color = 'black'
+        headericon.style.color = 'black'
+        progressvalue.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        progress.style.backgroundColor = 'black'
+        timeright.style.color = 'black'
+        footerRight.style.color = 'black'
+        volume1.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        btnvolume.style.backgroundColor = 'rgb(231 215 215 / 44%)'
+    }
 };
+
+
+
 function start() {
     renderSong();
     handleloadsong();
