@@ -79,6 +79,7 @@ var songs = [
         path: './asset/audio/song3.mp3',
         imge: './asset/img/tupleuvang.jpg'
     },
+    
 
 
 ]
@@ -127,6 +128,8 @@ var israndom = false;
 var isreload = false;
 var ismuted = false;
 audio.volume = 1;
+var volume = $('.volume .btnvolume')
+var volume1 = $('.volume .volume1')
 var cdWidth = cd.offsetWidth;
 // console.log(showListsong)
 var animateCDthumb;
@@ -161,7 +164,7 @@ function renderSong() {
            </div>
             
             <div class="time-duration">
-                <span class="time-duration-text">04:29</span>
+                <span class="time-duration-text">04:18</span>
             </div>
             <div class="option">
                 <div class="option-icon">
@@ -196,22 +199,8 @@ function handleloadsong() {
     cdThumb.style.backgroundImage = `url(${songs[currentIndexsong].imge})`;
     nameSong.innerText = songs[currentIndexsong].name;
     nameband.innerText = songs[currentIndexsong].singer;
-    // timedurationsong.innerHTML = formatSecondsAsTime(audio.src);
-    // console.log(audio.duration)
-    // console.log(audio,cdThumb,nameSong);  
-    
-}
-//text run
-function animate_string() {
-    const textNode = nameSong.firstChild;
-    let text = textNode.data;
-    console.log(text);
-    setInterval(() => {
-        text = text[text.length-2] + text.substring(0, text.length - 1);
-        textNode.data = text
-    }, 200);
-}
 
+}
 //next song
 function nextSong() {
     // next song   
@@ -263,14 +252,12 @@ function randomSong() {
 }
 //Tăng giảm volume
 function handaleVolume() {
-    var volume = $('.volume .btnvolume')
-    var volume1 = $('.volume .volume1')
+   
     console.log(volume)
     volume.onchange = function (e) {
         audio.volume = e.currentTarget.value / 100;
         volume1.style.width = (audio.volume * 70) + 'px';
-        console.log(audio.volume)
-        console.log(volume1.style.width)
+       
     }
 }
 //formattime
@@ -425,12 +412,14 @@ function handleaudio() {
         mutevolume.classList.add('active')
         onVolume.classList.remove('active')
         audio.muted = true;
+        volume1.style.width = '0' + 'px';
     }
     //on volume
     mutevolume.onclick = function () {
         onVolume.classList.add('active')
         mutevolume.classList.remove('active')
         audio.muted = false;
+        volume1.style.width = '70' + 'px';
     }
     //play song
     iconPlay.onclick = function () {
@@ -572,6 +561,7 @@ function handleEvent() {
     }
     iconclose.onclick = function(){
         modal.classList.remove('open-modal')
+       
     }
     modal.onclick = function(){
         modal.classList.remove('open-modal')
@@ -585,7 +575,7 @@ function handleEvent() {
 
         }, 200)
         if (y > 0) {
-            contentsearch.style.backgroundColor = "#061D4F";
+            contentsearch.style.backgroundColor = "git";
         }
         else {
             contentsearch.style.backgroundColor = "transparent"
@@ -604,7 +594,26 @@ function handleEvent() {
     var iconcheck = $('.icon-check')
     var applyone = $$('.apply')[0]
     var applylondon = $$('.apply')[1]
+    var applypuperxoay = $$('.apply')[2]
+    var applythapeffen = $$('.apply')[3]
+    var applyjack = $$('.apply')[4]
+    var applyui = $$('.apply')[5]
+    var applyJichangwon = $$('.apply')[5]
+    var applyLisa = $$('.apply')[6]
+    var applyJenykym = $$('.apply')[7]
+    var applyJso = $$('.apply')[8]
+
     var previewone = $$('.preview')[0]
+    var previewlondon = $$('.preview')[1]
+    var previewpuperxoay = $$('.preview')[2]
+    var previewpupereffen = $$('.preview')[3]
+    var previewjack = $$('.preview')[4]
+    var previewui = $$('.preview')[5]
+    var previewJichangwon = $$('.apply')[5]
+    var previewLisa = $$('.apply')[6]
+    var previewJenykim = $$('.apply')[7]
+    var previewJso = $$('.apply')[8]
+
     var navbar = $('.navbar')
     var footer = $('.footer')
     var contentsearch = $('.content-search')
@@ -617,36 +626,42 @@ function handleEvent() {
     var footerRight = $('.footer-right')
     var volume1 = $('.volume1')
     var btnvolume = $('.btnvolume')
-    applyone.onclick = function(){
-        document.onscroll = function () {
-            var y = pageYOffset
-            setTimeout(function () {
+    var themetext = $$('.theme-text')
+    var displaytext  = $('.display-text')
+    var tagh = document.querySelectorAll('h2')
+    var iconclose = $('.modal-header-icon-close')
+    // console.log(tagh)
+    // console.log(themetext)
+    // applyone.onclick = function(){
+    //     document.onscroll = function () {
+    //         var y = pageYOffset
+    //         setTimeout(function () {
     
-            }, 200)
-            if (y > 0) {
-                
-            }
-            else {
-                contentsearch.style.backgroundColor = "transparent"
-            }
-        }
-        headercontentsearch.style.backgroundColor = '#061D4F'
-        headercontentsearchinput.style.backgroundColor = '#061D4F'
-        contentsearch.style.backgroundColor = '#061D4F'
-        footer.style.backgroundColor = '#051740'
-        navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
-        modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
-        iconcheck.classList.add('active')
-        modal.classList.remove('open-modal')
-    }
-    previewone.onclick = function(){
-        headercontentsearch.style.backgroundColor = '#061D4F'
-        headercontentsearchinput.style.backgroundColor = '#061D4F'
-        contentsearch.style.backgroundColor = '#061D4F'
-        footer.style.backgroundColor = '#051740'
-        navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
-        modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
-    }
+    //         }, 200)
+    //         if (y > 0) {
+
+    //         }
+    //         else {
+    //             contentsearch.style.backgroundColor = "transparent"
+    //         }
+    //     }
+    //     headercontentsearch.style.backgroundColor = '#061D4F'
+    //     headercontentsearchinput.style.backgroundColor = '#061D4F'
+    //     contentsearch.style.backgroundColor = '#061D4F'
+    //     footer.style.backgroundColor = '#051740'
+    //     navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
+    //     modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
+    //     iconcheck.classList.add('active')
+    //     modal.classList.remove('open-modal')
+    // }
+    // previewone.onclick = function(){
+    //     headercontentsearch.style.backgroundColor = '#061D4F'
+    //     headercontentsearchinput.style.backgroundColor = '#061D4F'
+    //     contentsearch.style.backgroundColor = '#061D4F'
+    //     footer.style.backgroundColor = '#051740'
+    //     navbar.style.backgroundColor = 'rgb(13 56 149 / 23%)';
+    //     modalcontainer.style.backgroundColor = 'rgb(107, 5, 128)'
+    // }
    
     // theme london
     applylondon.onclick = function(){
@@ -681,7 +696,8 @@ function handleEvent() {
         nameSong.style.color = 'black'
         console.log(tensong)
         modal.classList.remove('open-modal')
-        iconcheck.classList.add('active')
+        // $('.iconcheck.active').classList.remove('.active')
+        // iconcheck.classList.add('.iconcheck.active')
         option.style.color = 'black'
         headericon.style.color = 'black'
         progressvalue.style.backgroundColor = 'rgb(139 127 127 / 34%)'
@@ -690,10 +706,275 @@ function handleEvent() {
         footerRight.style.color = 'black'
         volume1.style.backgroundColor = 'rgb(139 127 127 / 34%)'
         btnvolume.style.backgroundColor = 'rgb(231 215 215 / 44%)'
+        modalcontainer.style.backgroundColor = '#FFFFFE'
+        iconclose.style.color = 'black'
+        thumbnail.style.color = 'black'
+    }
+    previewlondon.onclick = function(){
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme/London-light1.jpg)"
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'black'
+        }
+        for(var j = 0; j < listnavbaritem1.length; ++j){
+            listnavbaritem1[j].style.color = 'black'
+        }   
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "#fff";
+            }
+            else {
+                contentsearch.style.backgroundColor = "rgb(225 222 222 / 35%)"
+            }
+        }
+        navbar.style.backgroundColor = 'rgb(225 222 222 / 35%)'
+        navbarfooter.style.color = 'black'
+        headercontentsearch.style.backgroundColor = 'rgb(193 176 176 / 35%)'
+        headercontentsearchinput.style.backgroundColor = 'rgb(225 222 222 / 35%)' 
+        headercontentlistsearch.style.backgroundColor  = 'rgb(225 222 222)' 
+        content.style.color = 'black'
+        AboutMusicheadertext.style.color = 'black'
+        footer.style.backgroundColor = '#fff'
+        nameSong.style.color = 'black'
+        console.log(tensong)
+        option.style.color = 'black'
+        headericon.style.color = 'black'
+        progressvalue.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        progress.style.backgroundColor = 'black'
+        timeright.style.color = 'black'
+        footerRight.style.color = 'black'
+        volume1.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        btnvolume.style.backgroundColor = 'rgb(231 215 215 / 44%)'
+        modalcontainer.style.backgroundColor = '#FFFFFE'
+        for(var l = 0 ; l < themetext.length; ++l){
+            themetext[l].style.color = 'black'
+        }
+        displaytext.style.color = 'black'
+        for(var z = 0; z < tagh.length; ++z){
+            tagh[z].style.color = 'black'
+        }
+        iconclose.style.color = 'black'
+    }
+    //puper xoay 
+    applypuperxoay.onclick = function (){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(50 7 85)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        modal.classList.remove('open-modal')
+        iconcheck.classList.add('active')
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/zma.svg)"
+        Background.style.backgroundRepeat = "repeat";
+        Background.style.backgroundSize = "auto"
+        footer.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-player/zma.png)"
+        navbar.style.backgroundColor = '#4B206E'
+        modalcontainer.style.backgroundColor = '#4B206E'
+    }
+    previewpuperxoay.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(50 7 85)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/zma.svg)"
+        Background.style.backgroundRepeat = "repeat";
+        Background.style.backgroundSize = "auto"
+        footer.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-player/zma.png)"
+        navbar.style.backgroundColor = '#4B206E'
+        modalcontainer.style.backgroundColor = '#4B206E'
+    }
+    //thap effen
+    applythapeffen.onclick = function (){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(46 44 44)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'rgb(151 151 151)'
+        }
+        modal.classList.remove('open-modal')
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/eiffel.jpg)"
+        modalcontainer.style.backgroundColor ="rgb(46 44 44)"
+        footer.style.backgroundColor = "rgb(46 44 44)"
+    }
+    previewpupereffen.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(46 44 44)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'rgb(151 151 151)'
+        }
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/eiffel.jpg)"
+        modalcontainer.style.backgroundColor ="rgb(46 44 44)"
+        footer.style.backgroundColor = "rgb(46 44 44)"
+    }
+    //jack
+    applyjack.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "#77736A";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'rgb(151 151 151)'
+        }
+        modal.classList.remove('open-modal')
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/jack.jpg)"
+        modalcontainer.style.backgroundColor ="#565147"
+        footer.style.backgroundColor = "#565147"
+        navbar.style.backgroundColor ="#837c6e6e"
+    }
+    previewjack.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "#77736A";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/jack.jpg)"
+        modalcontainer.style.backgroundColor ="#565147"
+        footer.style.backgroundColor = "#565147"
+        navbar.style.backgroundColor ="#837c6e6e"
+    }
+    //UI
+    applyui.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(229 216 209)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/iu.jpg)"
+        modalcontainer.style.backgroundColor ="#FFF"
+        for(var l = 0 ; l < themetext.length; ++l){
+            themetext[l].style.color = 'black'
+        }
+        displaytext.style.color = 'black'
+        for(var z = 0; z < tagh.length; ++z){
+            tagh[z].style.color = 'black'
+        }
+        modal.remove.classList('open-modal')
+        footer.style.backgroundColor = "#D0CCC5"
+        navbar.style.backgroundColor ="rgb(72 72 72 / 18%)"
+        option.style.color = 'black'
+        headericon.style.color = 'black'
+        progressvalue.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        progress.style.backgroundColor = 'black'
+        timeright.style.color = 'black'
+        footerRight.style.color = 'black'
+        volume1.style.backgroundColor = 'black'
+        btnvolume.style.backgroundColor = '#00000054'
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'black'
+        }
+        navbarfooter.style.color ='black'
+        iconclose.style.color = 'black'
+    }
+    previewui.onclick = function(){
+        document.onscroll = function () {
+            var y = pageYOffset
+            setTimeout(function () {
+    
+            }, 200)
+            if (y > 0) {
+                contentsearch.style.backgroundColor = "rgb(229 216 209)";
+            }
+            else {
+                contentsearch.style.backgroundColor = ""
+            }
+        }
+        Background.style.backgroundImage = "url(https://zmp3-static.zadn.vn/skins/zmp3-v6.1/images/theme-background/iu.jpg)"
+        modalcontainer.style.backgroundColor ="#FFF"
+        for(var l = 0 ; l < themetext.length; ++l){
+            themetext[l].style.color = 'black'
+        }
+        displaytext.style.color = 'black'
+        for(var z = 0; z < tagh.length; ++z){
+            tagh[z].style.color = 'black'
+        }
+        footer.style.backgroundColor = "#D0CCC5"
+        navbar.style.backgroundColor ="rgb(72 72 72 / 18%)"
+        option.style.color = 'black'
+        headericon.style.color = 'black'
+        progressvalue.style.backgroundColor = 'rgb(139 127 127 / 34%)'
+        progress.style.backgroundColor = 'black'
+        timeright.style.color = 'black'
+        footerRight.style.color = 'black'
+        volume1.style.backgroundColor = 'black'
+        btnvolume.style.backgroundColor = '#00000054'
+        for(var i = 0 ; i < listnavbaritem.length ; ++i)
+        {
+            listnavbaritem[i].style.color = 'black'
+        }
+        navbarfooter.style.color ='black'
+        iconclose.style.color = 'black'
     }
 };
 
-
+//load time duration song
+function handleloadtimeduration(){
+   
+}
+ 
 
 function start() {
     renderSong();
@@ -701,6 +982,7 @@ function start() {
     handleaudio();
     handleEvent();
     handaleVolume();
+    // handleloadtimeduration();
     // animate_string();
 };
 
