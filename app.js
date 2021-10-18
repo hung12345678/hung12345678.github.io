@@ -440,6 +440,7 @@ function handleaudio() {
         thumbnail.classList.add('activethumbnail')
         // $('.activeplay').classList.remove('activeplay')
         // $('.song-playingwhite').classList.add('activeplay')
+        footerleft.style.transform = 'translateX(0%)'
         audio.play();
         animateThumbnail1.play();
         animateThumbnail2.play();
