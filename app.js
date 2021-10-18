@@ -18,7 +18,7 @@ var songs = [
 
     {
         stt: '1.',
-        name: 'Cô Đơn Dành Cho Ai Đây ',
+        name: 'Cô Đơn Dành Cho Ai Đây',
         singer: 'Thanh Hùng',
         path: './asset/audio/CoDonDanhChoAi-LeeKenNal-7068986.mp3',
         imge: 'https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg'
@@ -131,6 +131,11 @@ var cdWidth = cd.offsetWidth;
 var animateCDthumb;
 var Thumbnail = $('.thumbnail');
 var animateThumbnail;
+var animateThumbnail1;
+var animateThumbnail2;
+var animateThumbnail3;
+var animateThumbnail4;
+
 
 // rendersong
 function renderSong() {
@@ -195,7 +200,16 @@ function handleloadsong() {
     // console.log(audio,cdThumb,nameSong);  
     
 }
-//songonloadmeta
+//text run
+function animate_string() {
+    const textNode = nameSong.firstChild;
+    let text = textNode.data;
+    console.log(text);
+    setInterval(() => {
+        text = text[text.length-2] + text.substring(0, text.length - 1);
+        textNode.data = text
+    }, 200);
+}
 
 //next song
 function nextSong() {
@@ -285,6 +299,117 @@ function handleaudio() {
     //     duration: 10000, // 10 seconds
     //     iterations: Infinity// quay vô hạn;
     // })
+   var thumbnail1 = $('.thumbnail1')
+   var thumbnail2 = $('.thumbnail2')
+   var thumbnail3 = $('.thumbnail3')
+   var thumbnail4 = $('.thumbnail4')
+   console.log(thumbnail1)
+   animateThumbnail1 = thumbnail1.animate([
+         {
+            opacity: 0.3,
+            transform: 'rotate(-90deg)'
+         },
+         {
+            opacity: 1,
+         },
+         {
+            opacity: 0.9,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+            transform: 'rotate(90deg)'
+         },
+    ],{
+        duration: 10000, // 10 seconds
+        iterations: Infinity// quay vô hạn
+    })
+    animateThumbnail1.pause();
+    animateThumbnail2 = thumbnail2.animate([
+        {
+            opacity: 1,
+            transform: 'rotate(90deg)'
+         },
+         {
+            opacity: 0.75,
+            transform: 'rotate(-90deg)'
+         },
+         {
+            opacity: 1,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         
+    ],{
+        duration: 9000, // 10 seconds
+        iterations: Infinity// quay vô hạn
+    })
+    animateThumbnail2.pause();
+    animateThumbnail3 = thumbnail3.animate([
+        {
+            opacity: 0.75,
+            transform: 'rotate(90deg)'
+         },
+         {
+            opacity: 0.5,
+            transform: 'rotate(-90deg)'
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 1,
+         },
+    ],{
+        duration: 10000, // 10 seconds
+        iterations: Infinity// quay vô hạn
+    })
+    animateThumbnail3.pause();
+    animateThumbnail4 = thumbnail4.animate([
+        {
+            opacity: 1,
+            transform: 'rotate(90deg)'
+         },
+         {
+            opacity: 0.2,
+            transform: 'rotate(-90deg)'
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 0,
+         },
+         {
+            opacity: 1,
+         },
+         {
+            opacity: 0.5,
+         },
+    ],{
+        duration: 10000, // 10 seconds
+        iterations: Infinity// quay vô hạn
+    })
+    animateThumbnail4.pause();
+
     animateCDthumb = cd.animate([
         {
             transform: 'rotate(360deg)'
@@ -308,6 +433,7 @@ function handleaudio() {
     }
     //play song
     iconPlay.onclick = function () {
+        var footerleft = $('.footer-left')
         timeleft.innerHTML = audio.currentTime;
         $('.active').classList.remove('active')
         iconpause.classList.add('active')
@@ -315,6 +441,10 @@ function handleaudio() {
         // $('.activeplay').classList.remove('activeplay')
         // $('.song-playingwhite').classList.add('activeplay')
         audio.play();
+        animateThumbnail1.play();
+        animateThumbnail2.play();
+        animateThumbnail3.play()
+        animateThumbnail4.play()
         animateCDthumb.play();
     }
     //pause song
@@ -323,6 +453,10 @@ function handleaudio() {
         iconPlay.classList.add('active')
         thumbnail.classList.remove('activethumbnail')
         audio.pause();
+        animateThumbnail1.pause();
+        animateThumbnail2.pause();
+        animateThumbnail3.pause()
+        animateThumbnail4.pause()
         animateCDthumb.pause();
     }
     //khi tiến độ bài hát thay đổi ontimeupdate
@@ -444,6 +578,7 @@ function start() {
     handleaudio();
     handleEvent();
     handaleVolume();
+    // animate_string();
 };
 
 start();
